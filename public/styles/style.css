@@ -1,0 +1,202 @@
+/*The margin and padding probem.Section -none.Div inside section
+  - margin: 0 24 24 24. Last div's  bottom margin will 'destroy' layout
+  by going out of section, thre4 set it to 0 and change section's padding
+  bottom to 16px. Similar logic is applied to first div in section y removing
+  top margin and setting section's padding top to 16px,*/
+/*General*/
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 16px;
+	line-height: 26px;
+}
+html,body{
+	max-width: 100vw;
+	min-height: 100vh;
+}
+body{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+li{
+	list-style-type: none;
+}
+li a {
+	text-decoration: none;
+}
+img{
+	max-width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 8px;
+}
+h1{
+	font-size: 28px;
+	line-height: 34px;
+	margin-bottom: 4px;
+}
+h2{
+	font-size: 20px;
+	line-height: 32px;
+	margin-bottom: 4px;
+}
+h3{
+	font-size: 16px;
+	line-height: 26px;
+	margin-bottom: 4px;
+}
+p{
+	font-size: 16px;
+	line-height: 26px;
+	margin-bottom: 8px;
+}
+input{
+	padding:8px;
+	border: 1px solid black;
+	border-radius: 4px;
+	min-width: 100%;
+	max-width: 100%;
+}
+/*header*/
+header{
+	padding:8px 16px;
+	background-color: CornflowerBlue;
+	position: fixed;
+	left: 0;
+	top: 0;
+	max-width: 100vw;
+	min-width: 100vw;
+}
+/*section*/
+section{
+	max-width: 100%;
+	padding-bottom: 16px;
+	padding-top: 16px;
+	/*border:2px dashed green;*/
+}
+section:nth-child(2) div:first-child{
+	/*50px because header is fixed and has a total height of 50 (h2 + padding)*/
+	margin-top: 50px;
+}
+section:nth-last-of-type(1){
+	padding-bottom: 58px;
+}
+
+/*section:nth-child(even){
+	background-color: blue;
+}
+section:nth-child(odd){
+	background-color: pink;
+}*/
+/*div*/
+div{
+	margin: 0 16px 16px 16px;
+	max-width: 100%;
+	/*border: 1px solid red;*/
+}
+div div{
+	margin: 0;
+}
+section div:last-child{
+	margin-bottom: 0;
+}
+
+
+/*footer*/
+footer{
+	padding:8px 16px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	min-width: 100vw;
+	max-width: 100vw;
+	background-color: CornflowerBlue;
+}
+footer ul{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+/*login screen*/
+.tabs ul{
+	display: flex;
+}
+.tabs ul li{
+	flex-grow: 1;
+	text-align: center;
+}
+.invalid-input{
+	color: red;
+}
+#register-form{
+	display: none;
+}
+#login-tab{
+	border-bottom: 5px solid blue;
+}
+form p{
+	margin: 0;
+}
+label{
+	display: inline-block;
+	margin-top: 16px;
+	margin-bottom: 2px;
+}
+label:first-child{
+	margin-top: 0;
+}
+form input:last-child{
+	margin-top: 16px;
+}
+
+/*new phones section*/
+.new-phone{
+	display:grid;
+	grid-template-columns: 1fr 2fr 1.5fr;
+	grid-template-rows: repeat(2,minmax(auto,auto));
+	grid-row-gap: 4px;
+	grid-column-gap: 8px;
+	margin-bottom: 16px;
+	padding-left: 8px;
+	box-shadow: 1px 1px 6px 2px #bbd0f7;
+}
+.new-phone img{
+	grid-row: 1/3;
+	grid-column:1/2;
+	object-fit: cover;
+	border-radius: 0;
+	align-self: start;
+	margin: 18px 0; 
+	border-radius: 50%;
+}
+.new-phone p, .new-phone h3{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: pre-line;
+	/*Solution to have a max no. of n lines*/
+	display: -webkit-box;
+	-webkit-line-clamp:2;
+	-webkit-box-orient:vertical;
+}
+.new-phone h3{
+	grid-row:1/2;
+	grid-column:2/3;
+	margin-top: 8px;
+}
+.new-phone p:nth-child(3){
+	grid-row:1/2;
+	grid-column:3/4;
+	margin-top: 8px;
+	margin-right: 8px;
+	justify-self:end;  
+}
+.new-phone p:last-child{
+	grid-row:2/3;
+	grid-column:2/4;
+	margin-bottom: 8px;
+	
+}
+
